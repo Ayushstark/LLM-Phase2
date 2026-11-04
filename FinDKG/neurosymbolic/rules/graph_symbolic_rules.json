@@ -1,0 +1,17 @@
+{
+  "version": "0.1",
+  "scope": "existing FinDKG quadruples and supplied entity/relation/time mappings",
+  "rules": [
+    {"id": "G001", "predicate": "head_id in [0, entity_count)", "failure": "reject"},
+    {"id": "G002", "predicate": "tail_id in [0, entity_count)", "failure": "reject"},
+    {"id": "G003", "predicate": "relation_id in [0, relation_count)", "failure": "reject"},
+    {"id": "G004", "predicate": "time_id in [0, time_point_count)", "failure": "reject"},
+    {"id": "G005", "predicate": "head and tail both exist in entity-type mapping", "failure": "reject"},
+    {"id": "G006", "predicate": "quadruple timestamps fall within their chronological split interval", "failure": "reject"},
+    {"id": "G007", "predicate": "train, validation, and test time ranges are strictly chronological", "failure": "dataset-level reject"},
+    {"id": "G008", "predicate": "exact quadruple recurrence is counted and preserved; cross-split exact overlap is reported", "failure": "abstain/report"},
+    {"id": "G011", "predicate": "relation/head-type/tail-type signature must occur in earliest 80% of training time points for rows in final 20% of train", "failure": "reject and audit; validation/test untouched"},
+    {"id": "G009", "predicate": "claim has source text and supports its relation semantically", "failure": "abstain; unavailable in graph-only datasets"},
+    {"id": "G010", "predicate": "claim is objectively true in the world", "failure": "abstain; not decidable from graph structure"}
+  ]
+}

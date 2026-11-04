@@ -1,0 +1,106 @@
+{
+  "dataset": "FinDKG-full",
+  "rule_scope": "graph schema and temporal consistency only; no source evidence or objective truth available",
+  "declared_counts": {
+    "entities": 13645,
+    "relations": 15,
+    "time_points": 261
+  },
+  "observed_counts": {
+    "entity_mapping_rows": 13645,
+    "type_ids": 12,
+    "type_entity_counts": {
+      "0": 3088,
+      "1": 936,
+      "2": 1431,
+      "3": 1068,
+      "4": 533,
+      "5": 1245,
+      "6": 759,
+      "7": 59,
+      "8": 2807,
+      "9": 436,
+      "10": 699,
+      "11": 584
+    }
+  },
+  "splits": {
+    "train": {
+      "rows": 222732,
+      "time_min": 0,
+      "time_max": 233,
+      "accepted": 222732,
+      "rejected": 0
+    },
+    "valid": {
+      "rows": 9404,
+      "time_min": 234,
+      "time_max": 246,
+      "accepted": 9404,
+      "rejected": 0
+    },
+    "test": {
+      "rows": 10013,
+      "time_min": 247,
+      "time_max": 260,
+      "accepted": 10013,
+      "rejected": 0
+    }
+  },
+  "temporal_findings": [
+    {
+      "rule": "chronological_splits_disjoint",
+      "decision": "accept",
+      "left": "train",
+      "right": "valid"
+    },
+    {
+      "rule": "chronological_splits_disjoint",
+      "decision": "accept",
+      "left": "valid",
+      "right": "test"
+    }
+  ],
+  "cross_split_findings": [
+    {
+      "rule": "no_exact_quadruple_overlap",
+      "decision": "accept",
+      "left": "train",
+      "right": "valid",
+      "overlap_count": 0
+    },
+    {
+      "rule": "no_exact_quadruple_overlap",
+      "decision": "accept",
+      "left": "train",
+      "right": "test",
+      "overlap_count": 0
+    },
+    {
+      "rule": "no_exact_quadruple_overlap",
+      "decision": "accept",
+      "left": "valid",
+      "right": "test",
+      "overlap_count": 0
+    }
+  ],
+  "recurrence_statistics": {
+    "exact_repeated_rows_within_split": {
+      "train": 16536,
+      "valid": 731,
+      "test": 899
+    },
+    "same_fact_repeated_at_later_time_rows_within_split": {
+      "train": 61938,
+      "valid": 951,
+      "test": 1236
+    },
+    "interpretation": "descriptive recurrence signals; retained as valid data, never silently removed"
+  },
+  "rule_counts": {},
+  "limitations": [
+    "No raw news text or source provenance is present.",
+    "No claim-level semantic entailment or factual verification is possible.",
+    "Graph-level structural consistency is not a proxy for extraction accuracy."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "experiment_name": "neurosymbolic_findkg_graph_audit",
+  "status": "graph_symbolic_filter_implemented_kaggle_run_prepared",
+  "benchmark_dataset": "FinDKG",
+  "future_research_dataset": "FinDKG-full",
+  "seed": 41,
+  "baseline_reference": {
+    "reported_mrr": 0.110535,
+    "reported_rec1": 0.068177,
+    "reported_rec3": 0.122045,
+    "reported_rec10": 0.190757,
+    "reported_rec100": 0.361237,
+    "source_status": "user-supplied reference; checkpoint and logs unavailable in checkout"
+  },
+  "additional_supplied_run": {
+    "model": "R-GCN+RNN",
+    "seed": 41,
+    "patience": 20,
+    "test_loss": 137.3764,
+    "mrr": 0.116748,
+    "rec1": 0.073839,
+    "rec3": 0.128778,
+    "rec10": 0.198561,
+    "rec100": 0.369959,
+    "source_status": "pasted Kaggle log transcript; not independently reproduced in this workspace"
+  },
+  "research_scope": "fixed KGTransformer neural learner plus explicit symbolic graph consistency audit/filter; no article extraction reliability claims",
+  "extraction": {"provider": null, "model": null, "temperature": null},
+  "verification": {"policy": "early_train_relation_entity_type_signature", "fit_fraction_of_training_timepoints": 0.8, "minimum_support": 1, "rules": "../rules/graph_symbolic_rules.json", "literal_article_evidence": "unavailable_no_article_corpus"},
+  "graph": {"entity_map": "../FinDKG_dataset/FinDKG/entity2id.txt", "relation_map": "../FinDKG_dataset/FinDKG/relation2id.txt"},
+  "baseline_script_snapshot": {"max_epochs": 150, "patience": 20, "rnn_truncate_every": 50, "embedding_dim": 200, "graph_conv_layers": 2, "attention_heads": 8, "learning_rate": 0.0005}
+}

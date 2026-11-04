@@ -1,0 +1,13 @@
+{
+  "version": "0.1",
+  "policy": "conservative",
+  "rules": [
+    {"id": "R001", "description": "Article identifier must match candidate provenance", "action": "reject"},
+    {"id": "R002", "description": "Candidate evidence must be present as an exact source span", "action": "reject"},
+    {"id": "R003", "description": "Event date must parse as ISO date and not occur after article publication", "action": "reject"},
+    {"id": "R004", "description": "Relation must belong to the configured relation schema", "action": "reject"},
+    {"id": "R005", "description": "Known entity type conflicts are rejected", "action": "reject"},
+    {"id": "R006", "description": "A literal span match does not establish semantic entailment or objective truth", "action": "abstain"},
+    {"id": "R007", "description": "Numeric claims require an explicit unit", "action": "abstain"}
+  ]
+}

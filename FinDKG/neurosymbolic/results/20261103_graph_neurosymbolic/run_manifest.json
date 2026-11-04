@@ -1,0 +1,105 @@
+{
+  "run_id": "20261103_graph_neurosymbolic",
+  "status": "blocked_missing_runtime_dependencies",
+  "dataset": "FinDKG",
+  "dataset_dir": "C:\\Users\\iiitd\\OneDrive\\Documents\\LLM-Project\\LLM-Phase2\\LLM-Project\\FinDKG\\FinDKG_dataset\\FinDKG",
+  "variants": [
+    "baseline",
+    "symbolic_filter"
+  ],
+  "config": {
+    "experiment_name": "neurosymbolic_findkg_graph_audit",
+    "status": "graph_symbolic_auditor_implemented_experiment_not_run",
+    "benchmark_dataset": "FinDKG",
+    "future_research_dataset": "FinDKG-full",
+    "seed": 41,
+    "baseline_reference": {
+      "reported_mrr": 0.110535,
+      "reported_rec1": 0.068177,
+      "reported_rec3": 0.122045,
+      "reported_rec10": 0.190757,
+      "reported_rec100": 0.361237,
+      "source_status": "user-supplied reference; checkpoint and logs unavailable in checkout"
+    },
+    "additional_supplied_run": {
+      "model": "R-GCN+RNN",
+      "seed": 41,
+      "patience": 20,
+      "test_loss": 137.3764,
+      "mrr": 0.116748,
+      "rec1": 0.073839,
+      "rec3": 0.128778,
+      "rec10": 0.198561,
+      "rec100": 0.369959,
+      "source_status": "pasted Kaggle log transcript; not independently reproduced in this workspace"
+    },
+    "research_scope": "fixed KGTransformer neural learner plus explicit symbolic graph consistency audit/filter; no article extraction reliability claims",
+    "extraction": {
+      "provider": null,
+      "model": null,
+      "temperature": null
+    },
+    "verification": {
+      "policy": "graph_consistency",
+      "rules": "../rules/graph_symbolic_rules.json",
+      "literal_article_evidence": "unavailable_no_article_corpus"
+    },
+    "graph": {
+      "entity_map": "../FinDKG_dataset/FinDKG/entity2id.txt",
+      "relation_map": "../FinDKG_dataset/FinDKG/relation2id.txt"
+    },
+    "baseline_script_snapshot": {
+      "max_epochs": 150,
+      "patience": 20,
+      "rnn_truncate_every": 50,
+      "embedding_dim": 200,
+      "graph_conv_layers": 2,
+      "attention_heads": 8,
+      "learning_rate": 0.0005
+    }
+  },
+  "input_sha256": {
+    "train.txt": "a23a54e6e7ec400893cd7a97a715ddc4285c9550f26d1300f9d7993bb2b8d6e8",
+    "valid.txt": "51a8d67e44a0a353d61d5a4d4bec3ab577442cf1a1e5c8c5666a14303df4017e",
+    "test.txt": "9058d752333343ebf0e47bc94b8348132899b2daa4f9031204617f545787d882",
+    "stat.txt": "601275798e711a5b104da0aa7e0aede1faee04ff9f62bbba4831019a34322399",
+    "entity2id.txt": "3eb8e1a0f6e38c21152f0ce177ff9dcd53e6143ad3084f859337b5ff34bee82d",
+    "relation2id.txt": "c4b6c14815bdebba292eb07ce878c84d131783c0906aa812f46c3123eb457229"
+  },
+  "environment": {
+    "python": "3.10.10 (tags/v3.10.10:aad5f6a, Feb  7 2023, 17:20:36) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "created_utc": "2026-11-03T17:20:56.790551+00:00",
+    "torch": "2.12.0+cpu",
+    "cuda_available": false,
+    "cuda_version": null,
+    "dgl": {
+      "available": false,
+      "error": "No module named 'dgl'"
+    },
+    "torch_scatter": {
+      "available": false,
+      "error": "No module named 'torch_scatter'"
+    },
+    "numpy": "2.2.6",
+    "pandas": "2.2.3"
+  },
+  "notes": [
+    "The symbolic constraints use graph schema and temporal metadata only.",
+    "The neural component is the unchanged KGTransformer architecture from train_DKG_run.py.",
+    "Current symbolic rules reject malformed rows only; valid recurrence events are retained.",
+    "Train/validation/test files are copied as supplied. Validation and test rows are never used to build the training graph beyond the existing loader's evaluation interface."
+  ],
+  "metrics": null,
+  "checkpoints": [],
+  "audits": {
+    "baseline_rejected_rows": 0,
+    "symbolic_rejected_rows": 0,
+    "symbolic_filter_dataset": "C:\\Users\\iiitd\\OneDrive\\Documents\\LLM-Project\\LLM-Phase2\\LLM-Project\\FinDKG\\neurosymbolic\\results\\20261103_graph_neurosymbolic\\data_symbolic\\FinDKG",
+    "baseline_dataset": "C:\\Users\\iiitd\\OneDrive\\Documents\\LLM-Project\\LLM-Phase2\\LLM-Project\\FinDKG\\neurosymbolic\\results\\20261103_graph_neurosymbolic\\data\\FinDKG"
+  },
+  "missing_dependencies": [
+    "dgl",
+    "torch_scatter"
+  ]
+}
